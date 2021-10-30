@@ -207,18 +207,37 @@ console.log(inventory.sort(compare));
 //
 // Opdracht 2a: Hoeveel tv's zijn er al verkocht? Schrijf een script dat dit berekent. Log de uitkomst in de console.
 
+let totalSold = 0;
+inventory.forEach(item => {
+  totalSold += item.sold;
+})
+console.log(totalSold);
 
 // Opdracht 2b: Zorg ervoor dat dit aantal in het groen wordt weergegeven op de pagina.
 
+const container = document.getElementById("totalSold");
+container.textContent = totalSold.toString();
 
 // Opdracht 2c: Hoeveel tv's heeft Tech It Easy ingekocht? Schrijf een script dat dit berekent. Log de uitkomst in de console.
 
+let totalTVs = 0;
+inventory.forEach(item => {
+  totalTVs += item.originalStock;
+})
+console.log(totalTVs);
 
 // Opdracht 2d: Zorg ervoor dat dit aantal in het blauw wordt weergegeven op de pagina.
 
+const container1 = document.getElementById("totalTVs");
+container1.textContent = totalTVs.toString();
 
 // Opdracht 2e: Geef in het rood weer hoeveel tv's er nog verkocht moeten worden.
 
+remainer = totalTVs - totalSold;
+console.log(remainer);
+
+const container2 = document.getElementById("remainer");
+container2.textContent = remainer.toString();
 
 // Opdracht 3 - Array methoden en functies
 // Opdracht 3a: Gebruik een array-methode om alle tv merken (zoals Philips, NIKKEI, etc.) in een lijst op de pagina weer te geven. Zorg ervoor dat dit ook zou werken als we 200 tv's in onze array zouden hebben staan. Dat er dubbele namen in zitten, is niet erg.
