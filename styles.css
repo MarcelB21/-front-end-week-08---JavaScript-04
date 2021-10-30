@@ -1,0 +1,23 @@
+p, div {
+    font-size: 25px
+}
+
+#totalSold {
+    color: green;
+    font-weight: bold;
+}
+
+#totalTVs {
+    color: blue;
+    font-weight: bold;
+}
+
+#remainer {
+    color: red;
+    font-weight: bold;
+}
+
+.text {
+    font-size: 25px;
+    background-color: forestgreen;
+}
