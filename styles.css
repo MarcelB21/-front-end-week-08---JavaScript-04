@@ -16,3 +16,8 @@ p, div {
     color: red;
     font-weight: bold;
 }
+
+.text {
+    font-size: 25px;
+    background-color: forestgreen;
+}

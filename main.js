@@ -336,7 +336,40 @@ console.log(tvGenerator);
 // (1) Sorteer op prijs
 
 
+const sortButton = document.getElementById('sort-button');
+
+inventory.sort((a, b) => a.price - b.price)
+let test = document.getElementById("test");
+function sortOnPrice() {
+  for (let i = 0; i < inventory.length; i++) {
+    test.innerHTML += `<li>Prijs: ${inventory[i].price}</li> `
+  }
+}
+
+sortButton.addEventListener('click', sortOnPrice);
+
+
 // (2) Ambilight TV's
 
+function myFunction2() {
+  const ambiLightTv = inventory.filter((item) => {
+    return item.options.ambiLight === true
+  })
+
+  for (let i = 0; i < ambiLightTv.length; i++) {
+    document.getElementById("Ambi").innerHTML += `<br>Tv's met Ambilight:<br> ${ambiLightTv[i].name}<br>${ambiLightTv[i].brand}<br>€${ambiLightTv[i].price},-`;
+
+  }
+
+}
 
 // (3) uitverkochte exemplaren
+
+function myFunction1() {
+  document.getElementById("outOfStock").innerHTML = outOfStock;
+}
+
+let outOfStock = [];
+inventory.forEach(item => {if((item.originalStock - item.sold) === 0 )
+  outOfStock.push( '<br>' + item.type + ': ' + item.name + ': ' + item.brand + '<br>' +'€' + item.price + ',-' + '<br>' + item.availableSizes + '<br>' + 'refreshrate:' + item.refreshRate + '<br>' + item.screenType + '<br>' + item.screenQuality + '<br>'
+  );});
