@@ -242,10 +242,30 @@ container2.textContent = remainer.toString();
 // Opdracht 3 - Array methoden en functies
 // Opdracht 3a: Gebruik een array-methode om alle tv merken (zoals Philips, NIKKEI, etc.) in een lijst op de pagina weer te geven. Zorg ervoor dat dit ook zou werken als we 200 tv's in onze array zouden hebben staan. Dat er dubbele namen in zitten, is niet erg.
 
+// variant 1
+let arrayTVbrand = [];
+
+inventory.forEach(item => {
+  arrayTVbrand.push(item.brand)
+});
+console.log(arrayTVbrand);
+
+// variant 2
+const currentbrands = inventory.map((item) => {
+  return item.brand;
+})
+console.log(currentbrands);
 
 // Opdracht 4b: Schrijf de code uit 4a om naar een functie die een array met tv-objecten verwacht. Het is handig om onze scripts als functies op te zetten, zodat we ze gemakkelijk kunnen hergebruiken.
 // Tip: vergeet deze functie -declaratie niet aan te roepen!
 
+function tvObjects (item) {
+  let arrayTVbrand = [];
+  inventory.forEach(item => { arrayTVbrand.push(item.brand)})
+  return arrayTVbrand;
+}
+
+console.log(tvObjects("inventory"));
 
 // Opdracht 5 - Functies
 // Opdracht 5a: Zorg ervoor dat er een string wordt gegenereerd voor de naam van een tv. Maak een functie die één enkel tv-object (zoals inventory[0] of inventory[6]) verwacht en de naam op de volgende manier samenvoegt: [merk] [type] - [naam] zoals Philips 43PUS6504/12 - 4K TV of NIKKEI NH3216SMART - HD smart TV. Test of jouw functie ook werkt wanneer er een ander tv object wordt meegegeven.
