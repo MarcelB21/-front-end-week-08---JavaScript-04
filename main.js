@@ -165,15 +165,42 @@ const inventory = [
 //Opdracht 1 - Array Methoden
 // Opdracht 1a: Gebruik een array-methode om een array te maken met alle tv-type namen. Log de uitkomst in de console.
 
+const tvType = inventory.map((typeNaam) => { return "tv-type is " + typeNaam.type; })
+console.log(tvType);
 
 // Opdracht 1b: Gebruik een array-methode om alle tv's te verzamelen (de hele objecten) die volledig uitverkocht zijn. Log de uitkomst in de console.
 
+const soldTV = inventory.filter((item) => {
+  const mainStock = item.originalStock - item.sold;
+  if (mainStock === 0) {
+    return item.brand;
+  }
+})
+
+console.log(soldTV);
 
 // Opdracht 1c: Gebruik een array-methode om alle tv's te verzamelen (de hele objecten) die over AmbiLight beschikken. Log de uitkomst in de console.
 
+let ambi = inventory.filter((item) => {
+  const ambiLght = item.options.ambiLight;
+  if (ambiLght === true) {
+    return item.options.ambiLight;
+  }})
+
+console.log(ambi);
 
 // Opdracht 1d: Schrijf een functie die alle tv's van laagste naar hoogste prijs sorteert. Log de uitkomst in de console.
 
+function compare( a, b) {
+  if (a.price > b.price) {
+    return 1;}
+  if (a.price < b.price) {
+    return -1;}
+  // Equals
+  return 0;
+}
+
+console.log(inventory.sort(compare));
 
 //Opdracht 2 - Elementen in de DOM plaatsen
 // Tip: wanneer we meerdere waardes uit een array willen terugbrengen tot één getal of één string, gebruik je hier gewoon een oude vertrouwde for-loop voor!
